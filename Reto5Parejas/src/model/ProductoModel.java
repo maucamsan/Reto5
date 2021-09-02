@@ -13,12 +13,13 @@ package model;
 
 public class ProductoModel {
 
+ 
     
     private int prodCodigo;
     private String prodNombre;
     private int prodCantidad;
     private String prodMaterial;
-    
+    private int prodValor;
     private String proveedor;
     
     
@@ -28,13 +29,15 @@ public class ProductoModel {
      * @param prodNombre
      * @param prodCantidad
      * @param prodMaterial 
+     * @param prodValor
      */
 
-    public ProductoModel(int prodCodigo, String prodNombre, int prodCantidad, String prodMaterial) {
+    public ProductoModel(int prodCodigo, String prodNombre,int prodValor, int prodCantidad, String prodMaterial) {
         this.prodCodigo     = prodCodigo;
         this.prodNombre     = prodNombre;
         this.prodCantidad   = prodCantidad;
         this.prodMaterial   = prodMaterial;
+        this.prodValor      = prodValor;
     }
     
     /**
@@ -46,13 +49,14 @@ public class ProductoModel {
      * @param proveedor 
      */
     
-    public ProductoModel(int prodCodigo, String prodNombre, int prodCantidad, String prodMaterial, String proveedor)
+    public ProductoModel(int prodCodigo, String prodNombre,int prodValor, int prodCantidad, String prodMaterial, String proveedor)
     {
          this.prodCodigo     = prodCodigo;
         this.prodNombre     = prodNombre;
         this.prodCantidad   = prodCantidad;
         this.prodMaterial   = prodMaterial;
         this.proveedor      = proveedor;
+        this.prodValor      = prodValor;
     }
     
     /**
@@ -96,5 +100,20 @@ public class ProductoModel {
     public void setProdMaterial(String prodMaterial) {
         this.prodMaterial = prodMaterial;
     }
+    
+       /**
+     * @return the prodValor
+     */
+    public int getProdValor() {
+        return prodValor;
+    }
+
+    /**
+     * @param prodValor the prodValor to set
+     */
+    public void setProdValor(int prodValor) {
+        this.prodValor = prodValor;
+    }
+
     
 }
