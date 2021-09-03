@@ -120,8 +120,5 @@ public class ProveedorModel {
      */
     public void setProvCiudad(String provCiudad) {
         this.provCiudad = provCiudad;
-    }
-    
-    
-    
+    }    
 }
