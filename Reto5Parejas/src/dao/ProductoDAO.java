@@ -22,10 +22,6 @@ public class ProductoDAO {
     // Inicialización de tipo connection para posteriormente asignarle el valor de una instancia  de la calse ConnectionDB
     private Connection connection = null;
     
-    public ArrayList<ProductoModel> obtenerProductos()
-    {
-        return null;
-    }
     
 //    public ArrayList<ProductoModel> getProductosByProveedor(int prov_codigo)
 //    {
