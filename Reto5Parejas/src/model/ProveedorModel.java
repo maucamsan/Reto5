@@ -11,6 +11,7 @@ package model;
  */
 public class ProveedorModel {
 
+   
     
     private int provCod;
     private String provNombre;
@@ -18,6 +19,8 @@ public class ProveedorModel {
     private int telefono;
     private String provPais;
     private String provCiudad;
+    private String prodNombre;
+    private int prodCod;
     
     /**
      * Constructor Básico del modelo del proveedor
@@ -38,6 +41,21 @@ public class ProveedorModel {
         this.provPais = provPais;
         this.provCiudad = provCiudad;
     }
+  
+    public ProveedorModel(int provCod, String provNombre, String provDireccion, int telefono, String provPais, String provCiudad, String prodNombre, int prodCod)
+    {
+        this.provCod = provCod;
+        this.provNombre = provNombre;
+        this.provDireccion = provDireccion;
+        this.telefono = telefono;
+        this.provPais = provPais;
+        this.provCiudad = provCiudad;
+        this.prodNombre = prodNombre;
+        this.prodCod = prodCod;
+    }
+    
+    
+    
     /**
      * @return the provCod
      */
