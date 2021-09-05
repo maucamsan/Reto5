@@ -95,7 +95,7 @@ public class ProveedorDAO {
             if(connection == null)
             connection = ConnectionDB.getConnection();
         
-        String sql = "UPDATE proveefor SET prov_codigo=?, prov_nombre=?, prov_direccion=?, prov_telefono=?, prov_pais=?, prov_ciudad=?";
+        String sql = "UPDATE proveedor SET prov_codigo=?, prov_nombre=?, prov_direccion=?, prov_telefono=?, prov_pais=?, prov_ciudad=?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, proveedor.getProvCod());
         statement.setString(2, proveedor.getProvNombre());
