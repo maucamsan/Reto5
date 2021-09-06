@@ -28,7 +28,10 @@ public class OfreceDAO {
             if(connection == null)
                 connection = ConnectionDB.getConnection();
             
-            String sql = "SELECT  prod_codigo, ven_nro_factura FROM vendido WHERE prod_codigo =?";
+            String sql = "SELECT prod_codigo, proveedor.prov_nombre, producto.prod_nombre FROM ofrece"
+                    + "JOIN proveedor ON proveedor.prov_nombre=ofrece.prov_nombre"
+                    + "JOIN producto ON producto.prod_codigo=ofrece.prod_codigo"
+                    + " WHERE ofrece.prov_cod =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, provCodigo);
             
@@ -51,45 +54,45 @@ public class OfreceDAO {
     }
     
     
-    public void insertVenta(OfreceModel oferta) // CREATE
+    public void insertOferta(OfreceModel oferta) // CREATE
     {
         try
         {
             if(connection == null)
                 connection = ConnectionDB.getConnection();
             
-            String sql = "INSERT INTO  vendido(prod_codigo, ven_nro_factura) VALUES(?,?)";
+            String sql = "INSERT INTO  ofrece(prov_codigo, prod_codigo) VALUES(?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             
-            statement.setInt(1, vendido.getProvCodigo());
-            statement.setInt(2, vendido.getVenNroFactura());
+            statement.setInt(1, oferta.getProvCodigo());
+            statement.setInt(2, oferta.getProdCodigo());
            
             
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted > 0)
             {
-                System.out.println("Venta añadida con éxito");
+                System.out.println("Oferta añadida con éxito");
             }
             
             
         }
         catch(SQLException ex)
         {
-            System.out.println("Proveedor no ha podido ser añadido con éxito");
+            System.out.println("Oferta no ha podido ser añadido con éxito");
         }
     }
     
-    public void updateVenta(VendidoModel vendido) // UPDATE
+    public void updateOferta(OfreceModel oferta) // UPDATE
     {
         try
         {
             if(connection == null)
             connection = ConnectionDB.getConnection();
         
-        String sql = "UPDATE vendido SET prod_codigo=?, ven_nro_factura=?";
+        String sql = "UPDATE ofrece SET prov_codigo=?, prod_codigo=?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, vendido.getProvCodigo());
-        statement.setInt(2, vendido.getVenNroFactura());
+        statement.setInt(1, oferta.getProvCodigo());
+        statement.setInt(2, oferta.getProvCodigo());
         
         
         int rowsUpdated = statement.executeUpdate();
@@ -106,28 +109,28 @@ public class OfreceDAO {
         
     }
     
-    public void deleteVenta(int prodCod) // DELETE
+    public void deleteOferta(int provCod) // DELETE
     {
          try
         {
             if(connection == null)
             connection = ConnectionDB.getConnection();
         
-        String sql = "DELETE FROM vendido WHERE prod_codigo = ?";
+        String sql = "DELETE FROM ofrece WHERE prov_codigo = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, prodCod);
+        statement.setInt(1, provCod);
         
         
         int rowsUpdated = statement.executeUpdate();
         if(rowsUpdated > 0)
         {
-            System.out.println("Elimincación realizada con éxito");
+            System.out.println("Eliminación realizada con éxito");
         }
         
         }
         catch(SQLException ex)
         {
-            System.out.println("No se pudo eliminar el proveedor");
+            System.out.println("No se pudo eliminar el registro");
         }
     }
 }

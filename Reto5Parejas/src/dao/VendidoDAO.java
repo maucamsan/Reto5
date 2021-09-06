@@ -122,13 +122,13 @@ public class VendidoDAO {
         int rowsUpdated = statement.executeUpdate();
         if(rowsUpdated > 0)
         {
-            System.out.println("Elimincación realizada con éxito");
+            System.out.println("Eliminación realizada con éxito");
         }
         
         }
         catch(SQLException ex)
         {
-            System.out.println("No se pudo eliminar el proveedor");
+            System.out.println("No se pudo eliminar el registro");
         }
     }
     
